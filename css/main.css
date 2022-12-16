@@ -21,20 +21,11 @@ a {
     font-size: 1.4rem;
 }
 
-.bg-container {
-    width: calc(100% - 70%);
-    height: 93vh;
-    float: right;
-    background-image: url(https://images.pexels.com/photos/1072179/pexels-photo-1072179.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
 /*header*/
 header {
-    width: 70%;
+    width: 80%;
     height: 20vh;
-    background: rgb(20, 20, 20);
+    background: rgb(0, 0, 0);
     display: inline-block;
 }
 
@@ -55,31 +46,179 @@ header {
 }
 /*main*/
 main {
-    width: 70%; 
+    width: 80%; 
     height: 73vh;
     background-color: rgb(0, 0, 0);
     display: inline-block;
 }
-
-main section article img {
-    width: 50px;
+.bg-container {
+    width: calc(100% - 80%);
+    height: 93vh;
+    float: right;
+    background-image: url(https://images.pexels.com/photos/1072179/pexels-photo-1072179.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+
 
 main section {
     height: 100%;
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(3, minmax(320px 1fr));
-    grid-auto-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
 }
 
 main section article {
-    background-color: aquamarine;
-    width: 20%;
+    background-color: #212d21;
+    max-width: 300px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 3rem 1rem 3rem 1rem;
+    align-items: center;
+    text-align: center;
 }
+main section article img {
+    width:100%;
+    max-width: 100%;
+    border-radius: 3rem 1rem 0rem 0rem;
+}
+
+.art-text {
+    width: 40%;
+}
+
+
 
 /*footer*/
 footer {
     width: 100%;
     height: 7vh;
     background-color: rgba(0, 255, 255, 0.5);
+}
+
+/*Phones*/
+@media (max-width: 768px) {
+    main section {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        grid-template-areas: 
+        "item1 item2"
+        "item3 item3";
+    }
+
+    main section article {
+        max-width: 250px;
+        max-height: 250px;
+        justify-self: center;
+    }
+
+    .article-three {
+        grid-area: item3;
+    }
+}
+
+/*Solo para alinear despues de los 768*/
+@media (max-width: 1024px) {
+    main section {
+        align-items: center;
+    }
+}
+
+/*tablet laptop*/
+@media (min-width: 1024px) {
+    main section {
+        align-items: center;
+    }
+    
+    main section article {
+        height: 500px;
+        max-width: 350px;
+        max-height: 500px;
+    }
+}
+
+/*Tablet*/ /*Laptop*/
+@media only screen and (min-device-width: 769px) and (max-device-width: 1024px){
+main section {
+    grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        grid-template-areas: 
+        "item1 item2"
+        "item3 item3";
+        justify-items: center;
+    }
+    main section article {
+        width: 350px;
+        height: 305px;
+        max-width: 300px;
+        max-height: 305px;
+    }
+    
+    .article-three {
+        justify-self: center;
+        grid-area: item3;
+    }
+}
+/*Ipads laptop L*/
+@media only screen and ( min-device-width: 1441px) and (max-device-width: 3000px){
+    main section article {
+        max-width: 880px;
+        max-height: 920px;
+    }
+}
+
+/*Height*/
+@media only screen and (max-device-height: 768px) {
+    main section {
+        align-items: center;
+    }
+    main section article {
+        max-width: 200px;
+        max-height: 250px;
+    }
+}
+
+@media only screen and (orientation:landscape) and ( min-device-width: 768px) and (max-device-width: 1440px){
+    main section {
+        gap: 10px;
+        justify-items: center;
+        grid-template-areas: 
+        "item1 item2 item3";
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    main section article {
+        max-width: 500px;
+        max-height: 350px;
+    }
+    .article-three {
+        grid-area: item3;
+        justify-self: center;
+    }
+}
+@media only screen and (orientation:landscape) and ( min-device-width: 600px) and (max-device-width: 1024px){
+    main section article {
+        width: 200px;
+        max-width: 300px;
+    }
+}
+
+/*Phones with horizontal orientation*/
+@media only screen and (orientation:landscape) and (max-device-width: 768px) {
+    main section {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 5px;
+        grid-template-areas: 
+        "item1 item2 item3";
+    }
+    main section article {
+        max-width: 150px;   
+        max-height: 230px;
+    }
+    .article-three {
+        grid-area: item3;
+    }
 }
